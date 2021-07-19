@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-6 mx-auto">
+          <h3>Bài tập lưu trữ mảng</h3>
+          <div class="form-group">
+            <strong><label for="num">Nhập từng phần tử của mảng</label></strong>
+            <input
+              type="text"
+              id="num"
+              class="form-control"
+              placeholder="Nhập phần tử của mảng"
+            />
+          </div>
+          <button class="btn btn-success" id="btnAddArray"">
+            Thêm phần tử
+          </button>
+		  <div>
+			  <h5 id="array-current"></h5>
+		  </div>
+		  <div class="selection">
+			  <div class="form-group">
+				<label for="features">Chọn chức năng</label>
+				<select id="features" class="form-control">
+				  <option>Vui lòng chọn chức năng</option>
+				  <option value="chucnang1">Tổng các số dương trong mảng</option>
+				  <option value="chucnang2">Đếm có bao nhiêu số dương trong mảng</option>
+				  <option value="chucnang3">Tìm số nhỏ nhất trong mảng</option>
+				  <option value="chucnang4">Tìm số dương nhỏ nhất trong mảng</option>
+				  <option value="chucnang5">Tìm số chẵn cuối cùng trong mảng</option>
+				  <option value="chucnang6">Đổi chổ 2 giá trị trong mảng theo vị trí(not done)</option>
+				  <option value="chucnang7">Sắp xếp mảng theo thứ tự tăng dần</option>
+				  <option value="chucnang8">Tìm số nguyên tố đầu tiên trong mảng</option>
+				  <option value="chucnang9">Nhập thêm 1 mảng số thực(not done)</option>
+				  <option value="chucnang10">So sánh số lượng số dương và số âm trong mảng</option>
+				</select>
+			  </div>
+			  <button class="btn btn-success" id="btnConfirm">Xác nhận</button>
+			  <div id="result">
+				  <h3 id="result-features"></h3>
+			  </div>
+		  </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/main.js"></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
