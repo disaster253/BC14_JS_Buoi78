@@ -17,8 +17,17 @@ document.getElementById("btnConfirm").addEventListener("click", function () {
 	} else if (selectedValue == "chucnang6") {
 		$('<input type ="text" id ="swapNum1" class ="form-control mt-2" placeholder = "Nhập vào vị trí muốn đổi"/> ').appendTo("#result")
 		$('<input type ="text" id ="swapNum2" class ="form-control mt-2" placeholder = "Nhập vào vị trí muốn đổi"/> ').appendTo("#result")
-		$('<button class="btn btn-success mt-2" id="swapButton" onclick="swapNumber(arr, indexA, indexB)">Đổi vị trí</button>').appendTo("#result")
-		$('<h3 id = "result-swap"></h3>')
+		$('<button class="btn btn-success mt-2" id="swapButton">Đổi vị trí</button>').appendTo("#result")
+		$('<h3 id = "result-swap"></h3>').appendTo("#result")
+		document.getElementById("swapButton").addEventListener("click", function () {
+			var indexA = +document.getElementById("swapNum1").value;
+			var indexB = +document.getElementById("swapNum2").value;
+			var temp = "";
+			temp = arr[indexA];
+			arr[indexA] = arr[indexB];
+			arr[indexB] = temp;
+			document.getElementById("result-swap").innerHTML = `Mảng sau khi đổi vị trí là: [${arr}]`
+		})
 	} else if (selectedValue == "chucnang7") {
 		sortedArray(arr)
 		document.getElementById("result-features").innerHTML = `Mảng sau khi sort là: [${arr}]`
@@ -116,15 +125,9 @@ function findEvenLastNum(a) {
 	}
 	document.getElementById("result-features").innerHTML = `Số chẵn cuối cùng trong mảng là: ${num}`
 }
-function swapNumber(a) {
-	var temp = "";
-	var indexA = +document.getElementById("swapNum1").value;
-	var indexB = +document.getElementById("swapNum2").value;
-	temp = a[indexA];
-	a[indexA] = a[indexB];
-	a[indexB] = temp;
-	document.getElementById("result-swap").innerHTML = `Mảng sau khi đổi vị trí là: ${a}`
-}
+// function swapNumber(a) {
+
+// }
 //Sắp xếp mảng theo thứ tự tăng dần
 function sortedArray(a) {
 	a.sort(function (a, b) {
