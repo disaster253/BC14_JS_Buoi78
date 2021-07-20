@@ -14,12 +14,7 @@ document.getElementById("btnConfirm").addEventListener("click", function () {
 	} else if (selectedValue == "chucnang4") {
 		finMinPositiveNum(arr);
 	} else if (selectedValue == "chucnang5") {
-		var evenLast = findEvenLastNum(arr);
-		if (evenLast) {
-			document.getElementById("result-features").innerHTML = `Số chẵn cuối cùng trong mảng là: ${evenLast}`
-		} else {
-			document.getElementById("result-features").innerHTML = `Mảng không có số chẵn`
-		}
+		findEvenLastNum(arr);
 	} else if (selectedValue == "chucnang6") {
 		$('<input type ="text" id ="swapNum1" class ="form-control mt-2" placeholder = "Nhập vào vị trí muốn đổi"/> ').appendTo("#result")
 		$('<input type ="text" id ="swapNum2" class ="form-control mt-2" placeholder = "Nhập vào vị trí muốn đổi"/> ').appendTo("#result")
@@ -148,6 +143,7 @@ function findEvenLastNum(a) {
 			num = a[i]
 		}
 	}
+	document.getElementById("result-features").innerHTML = `Số chẵn cuối cùng trong mảng là: ${num}`
 }
 // function swapNumber(a) {
 
