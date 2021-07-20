@@ -1,5 +1,6 @@
 
 var arr = [];
+var floatArray = [];
 document.getElementById("btnAddArray").addEventListener("click", addArray)
 document.getElementById("btnConfirm").addEventListener("click", function () {
 	var featuresOpt = document.getElementById("features")
@@ -13,7 +14,12 @@ document.getElementById("btnConfirm").addEventListener("click", function () {
 	} else if (selectedValue == "chucnang4") {
 		finMinPositiveNum(arr);
 	} else if (selectedValue == "chucnang5") {
-		findEvenLastNum(arr);
+		var evenLast = findEvenLastNum(arr);
+		if (evenLast) {
+			document.getElementById("result-features").innerHTML = `Số chẵn cuối cùng trong mảng là: ${evenLast}`
+		} else {
+			document.getElementById("result-features").innerHTML = `Mảng không có số chẵn`
+		}
 	} else if (selectedValue == "chucnang6") {
 		$('<input type ="text" id ="swapNum1" class ="form-control mt-2" placeholder = "Nhập vào vị trí muốn đổi"/> ').appendTo("#result")
 		$('<input type ="text" id ="swapNum2" class ="form-control mt-2" placeholder = "Nhập vào vị trí muốn đổi"/> ').appendTo("#result")
@@ -36,13 +42,32 @@ document.getElementById("btnConfirm").addEventListener("click", function () {
 		if (firstPrime) {
 			document.getElementById("result-features").innerHTML = `Số nguyên tố đầu tiên trong mảng là ${firstPrime}`
 		} else {
-			document.getElementById("result-features").innerHTML = `Không có số nguyên tố trong mảng.`
+			document.getElementById("result-features").innerHTML = `Mảng không có số nguyên tố`
 		}
+	} else if (selectedValue == "chucnang9") {
+		$('<input type ="text" class ="form-control" id="floatArray"/>').appendTo("#result")
+		$('<button class="btn btn-success mt-2" id="addFloatArray">Thêm mảng số thực</button>').appendTo("#result")
+		$('<button class="btn btn-success mt-2 ml-3" id="findInt">Tìm số nguyên</button>').appendTo("#result")
+		$('<h5 id="float-array"></h5>').appendTo("#result")
+		$('<h5 id="float-result"></h5>').appendTo("#result")
+		document.getElementById("addFloatArray").addEventListener("click", function () {
+			var arrNum = +document.getElementById("floatArray").value;
+			floatArray.push(arrNum);
+			clearInput();
+			showArrayCurrent(floatArray, "float-array");
+		})
+		document.getElementById("findInt").addEventListener("click", function () {
+			var arrFl = "";
+			for (var i = 0; i < floatArray.length; i++) {
+				if (floatArray[i] % 1 === 0)
+					arrFl += floatArray[i] + ", ";
+			}
+			document.getElementById("float-result").innerHTML = `Mảng có số nguyên là: [${arrFl}]`;
+		})
 	} else if (selectedValue == "chucnang10") {
 		compareNum(arr);
 	}
 })
-
 // sau khi click button sẽ clear ô input
 function clearInput() {
 	$('button').click(function () {
@@ -54,15 +79,15 @@ function addArray() {
 	var arrNum = +document.getElementById("num").value;
 	arr.push(arrNum);
 	clearInput();
-	showArrayCurrent(arr);
+	showArrayCurrent(arr, "array-current");
 }
 //show mảng lên màn hình
-function showArrayCurrent(a) {
+function showArrayCurrent(a, id) {
 	var html = "";
 	for (var i = 0; i < a.length; i++) {
 		html += a[i] + ", ";
 	}
-	document.getElementById("array-current").innerHTML = `Mảng hiện tại là: [${html}]`
+	document.getElementById(id).innerHTML = `Mảng hiện tại là: [${html}]`
 }
 // Tổng các số dương trong mảng
 function sumPositiveNum(a) {
@@ -123,7 +148,6 @@ function findEvenLastNum(a) {
 			num = a[i]
 		}
 	}
-	document.getElementById("result-features").innerHTML = `Số chẵn cuối cùng trong mảng là: ${num}`
 }
 // function swapNumber(a) {
 
