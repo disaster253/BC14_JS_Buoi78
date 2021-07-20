@@ -141,9 +141,12 @@ function findEvenLastNum(a) {
 	for (var i = 0; i < a.length; i++) {
 		if (a[i] % 2 == 0 && a[i] > 0) {
 			num = a[i]
+			document.getElementById("result-features").innerHTML = `Số chẵn cuối cùng trong mảng là: ${num}`
+		} else {
+			document.getElementById("result-features").innerHTML = `Mảng không có số chẵn`
 		}
 	}
-	document.getElementById("result-features").innerHTML = `Số chẵn cuối cùng trong mảng là: ${num}`
+
 }
 // function swapNumber(a) {
 
