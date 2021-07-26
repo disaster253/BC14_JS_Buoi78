@@ -137,16 +137,15 @@ function finMinPositiveNum(a) {
 }
 // tìm số chẵn cuối cùng trong mảng
 function findEvenLastNum(a) {
-	var num = -1
+	var num = a[0]
 	for (var i = 0; i < a.length; i++) {
-		if (a[i] % 2 == 0 && a[i] > 0) {
+		if (a[i] % 2 == 0) {
 			num = a[i]
 			document.getElementById("result-features").innerHTML = `Số chẵn cuối cùng trong mảng là: ${num}`
 		} else {
 			document.getElementById("result-features").innerHTML = `Mảng không có số chẵn`
 		}
 	}
-
 }
 // function swapNumber(a) {
 
